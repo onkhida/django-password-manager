@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login {% endblock %}
+{% block content %}
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        Your username or password was incorrect.
+    </div>
+    {% endif %}
+
+    <div class="title">
+        <h1>PasswordManager</h1>
+    </div>
+    <div style='width: 80%;' class="form-wrapper">
+        <form method="post">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            <input type="submit" value="LOGIN" class="btn btn-primary">
+        </form>
+        <small style="color: gray;">
+            Or <a href="#">signup</a> here
+        </small>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Logged Out!{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">You've just been logged out.</h1>
+    <p class="lead">You can log back in by clicking the blue button below.</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">LOGIN</a>
+  </div>
+{% endblock %}
