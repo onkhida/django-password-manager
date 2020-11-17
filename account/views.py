@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from managerapp.models import UserLoginDetails
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
-from .forms import CheckPasswordForm
+from .forms import CheckPasswordForm, UserRegistratonForm
+from django.contrib import messages
+
 
 # Create your views here.
 @login_required
@@ -37,3 +39,22 @@ def credential_detail(request, id):
     }
 
     return render(request, 'account/credential.html', context)
+
+def register(request):
+    if request.POST:
+        user_form = UserRegistratonForm(request.POST)
+
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(
+                user_form.cleaned_data['password']
+            )
+            new_user.save()
+
+            messages.success(request, 'Login with your new account!')
+            return redirect('login')
+
+    else:
+        user_form = UserRegistratonForm()
+
+    return render(request, 'account/register.html', {'user_form':user_form})
