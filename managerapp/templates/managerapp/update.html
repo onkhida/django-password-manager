@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}New Password Credentials{% endblock %}
+
+{% block content %}
+    
+    <div class="title">
+        <h1>Update Password Credentials</h1>
+    </div>
+    <div style='width: 80%;' class="form-wrapper">
+        <form method="post">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <input type="submit" value="UPDATE" class="btn btn-primary">
+        </form>
+    </div>
+
+{% endblock %}

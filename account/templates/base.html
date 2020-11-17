@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav style="padding: 10px 50px 10px 50px;" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">PasswordManager</a>
+        <a class="navbar-brand" href="{% url 'dashboard' %}">PasswordManager</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,7 +22,7 @@
               <a hidden class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <a href="#">
+          <a href="{% url 'new' %}">
             <i style='color: white;' class="fa fa-plus fa-lg"></i>
           </a>
         </div>

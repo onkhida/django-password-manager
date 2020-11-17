@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Credential for {{ credential.site_name }}{% endblock %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+    <h3 class="display-4">Are you sure you want to delete credentials for {{ credential.site_name }}</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class='btn btn-danger' value="DELETE">
+        <a href="{% url 'credential_detail' credential.id %}" class='btn btn-success'>GO BACK</a>
+    </form>
+    
+</div>
+
+{% endblock %}

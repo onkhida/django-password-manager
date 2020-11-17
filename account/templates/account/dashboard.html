@@ -10,7 +10,7 @@ Dashboard
         <p class="lead">This is your dashboard. You may save any password you wish by clicking the button below.</p>
         <hr class="my-4">
         <p><b>Passwords saved: {{ passwords|length }}</b></p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">NEW</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'new' %}" role="button">NEW</a>
     </div> 
     
     {% for password in passwords %}
@@ -22,7 +22,7 @@ Dashboard
             <div class="card-body">
             <h5 class="card-title">{{ password.site_name }}</h5>
             <p class="card-text"><a href="{{ password.url }}">{{ password.url }}</a></p>
-            <a href="#" class="btn btn-primary">Check Credentials</a>
+            <a href="{% url 'credential_detail' password.id %}" class="btn btn-primary">Check Credentials</a>
             </div>
             <div class="card-footer text-muted">
                 <b>{{ password.user.username }}</b>
